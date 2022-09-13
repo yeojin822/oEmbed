@@ -28,22 +28,18 @@ public class OEmbedService {
         BaseResponse res = new BaseResponse();
         String domain = urlCheck(url);
 
-        log.info("도메인은 :: {}", domain);
 
         if (domain.equals("fail")) {
             return new ResponseEntity("잘못된 URL 입니다.", HttpStatus.BAD_REQUEST);
         } else {
             if (domain.equals("youtube")) {
-            log.info("URL.TWITTER_URL.getUrl() + url ::: {}", URL.YOUTUBE_URL.getUrl() + url);
-            Object forObject = restTemplate.getForObject(URL.YOUTUBE_URL.getUrl() + url, Object.class);
-            log.info("forObject ::: {}", forObject);
+                res.setBody(restTemplate.getForObject(URL.YOUTUBE_URL.getUrl() + url, YoutubeResult.class));
             } else if (domain.equals("twitter")) {
                 res.setBody(restTemplate.getForObject(URL.TWITTER_URL.getUrl() + url, TwitterResult.class));
             } else if (domain.equals("vimeo")) {
                 res.setBody(restTemplate.getForObject(URL.VIMEO_URL.getUrl() + url, VimeoResult.class));
             }
             return new ResponseEntity(res, HttpStatus.OK);
-
 
         }
 
