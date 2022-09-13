@@ -1,7 +1,7 @@
 package com.example.oembed.codingTest;
 
 /**
- * 분기 숫자 구하기
+ * 필수 테스트 - 1. 분기 숫자 구하기
  * */
 public class Number01 {
     public int quarter(int month){

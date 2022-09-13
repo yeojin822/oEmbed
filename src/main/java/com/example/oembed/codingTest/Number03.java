@@ -1,7 +1,7 @@
 package com.example.oembed.codingTest;
 
 /**
- *
+ * 필수 테스트 - 3. 승점구하기
  */
 public class Number03 {
     public int score(String[] games){
